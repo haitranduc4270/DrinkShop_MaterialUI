@@ -1,6 +1,15 @@
 import { createTheme, colors } from "@mui/material";
 
 export const LandingTheme = createTheme ({
+    breakpoints: {
+    values: {
+            xs: 0,
+            sm: 480,
+            md: 900,
+            lg: 1024,
+            xl: 1536,
+        },
+    },
     palette: {
         type: 'light',
         primary: {

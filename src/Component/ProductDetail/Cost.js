@@ -1,26 +1,26 @@
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
 import React from 'react';
 
-const LayoutCost = styled('div')(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'start',
-    fontSize: '30pt',
-    fontFamily: theme.typography.fontProduct,
-    fontStyle: 'italic',
-    color: theme.palette.primary.main,
-    marginBottom: 30,
-       
-    '& p': {
-        fontWeight: 50,
-        margin: 0,
-    }
-}))
-
-export function Cost () {
+export function Cost (props) {
+    const { cost } = props;
     return (
-        <LayoutCost>
-            <p>600.000 -</p>
-            <p>700.000</p>
-        </LayoutCost>
+        <Box sx={{
+            display: 'flex',
+            justifyContent: 'start',
+            fontSize: '30pt',
+            fontFamily: 'typography.fontProduct',
+            fontStyle: 'italic',
+            color: 'primary.main',
+            marginBottom: 30,
+            
+            '& p': {
+                fontWeight: 50,
+                margin: 0,
+            }
+        }}>
+            <p>{cost.from + " - "}</p>
+            <p>{cost.to}</p>
+        </Box>
     )
 }

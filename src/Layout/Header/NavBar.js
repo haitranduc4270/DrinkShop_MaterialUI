@@ -1,10 +1,13 @@
 import React from "react";
+import { useTheme } from "@mui/material";
 import { Box, Button, Typography } from "@mui/material";
 import { StyledLink } from '../../Component/StyledLink';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuIcon from '@mui/icons-material/Menu';
 
-export const NavBar = function () {
+export const NavBar = function (props) {
+    const theme = useTheme();
     return (
         <Box sx={{
             display: 'flex',
@@ -31,7 +34,7 @@ export const NavBar = function () {
                     </Typography>
                 </Box>
                 <Box sx={{ 
-                    display: {xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex'},
+                    display: {xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex'},
                 }} >
                     <StyledLink href='/' mx={15} my='auto'>Shop</StyledLink>
                     <StyledLink href='/' mx={15} my='auto'>Subcription</StyledLink>
@@ -39,10 +42,23 @@ export const NavBar = function () {
                     <StyledLink href='/' mx={15} my='auto'>Contact</StyledLink>
                 </Box>
             </Box>
-            <Box display='flex' justifyContent='space-between' width='20%'>
+            <Box display='flex' justifyContent='space-between' width='20%' sx={{
+                [theme.breakpoints.down('lg')] : {
+                    display: 'none',
+                }
+            }}>
                 <Button startIcon={<AccountCircleIcon/>} variant='text' size='large'>Log in</Button>
                 <Button startIcon={<ShoppingCartIcon/>} variant='text' size='large'></Button>
             </Box>
+            
+            <Button startIcon={<MenuIcon/>} variant='text' size='large' sx={{
+                [theme.breakpoints.down('lg')]: {
+                    display: 'flex',
+                },
+                [theme.breakpoints.up('lg')]: {
+                    display: 'none',
+                }
+            }}>Menu</Button>
         </Box>
     )
 }

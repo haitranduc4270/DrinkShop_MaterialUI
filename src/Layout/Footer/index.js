@@ -4,7 +4,6 @@ import { StyledLink } from '../../Component/StyledLink';
 import { Banner } from '../../Component/Banner';
 
 const GroupLink = function ( props ) {
-    console.log(props);
     return (
         <Box sx={{
             display: 'flex',
